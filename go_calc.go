@@ -2,29 +2,38 @@ package main
 
 import "fmt"
 
-func main(){
-	var a, b float32
+func main() {
+	const (
+		plus  = "+"
+		minus = "-"
+		multi = "*"
+		divis = "/"
+		dwr   = "%"
+	)
+
+	var a, b int
 	var ch string
-	fmt.Scan(&a, &b, &ch)
-	if(ch == "+"){
+
+	fmt.Scan(&a, &ch, &b)
+
+	switch ch {
+	case plus:
 		fmt.Println(a + b)
-	}else if(ch == "-"){
+	case minus:
 		fmt.Println(a - b)
-	}else if(ch == "*"){
+	case multi:
 		fmt.Println(a * b)
-	}else if(ch == "/"){
-		if(b != 0){
+	case divis:
+		if b != 0 {
 			fmt.Println(a / b)
-		}else{
-			fmt.Println("Делить на ноль нельзя!")
+		} else {
+			fmt.Println("На ноль делить нельзя")
 		}
-	}else if(ch == "%"){
-		if(b != 0){
-			fmt.Println(int(a) % int(b))
-		}else{
-			fmt.Println("Делить на ноль нельзя!")
+	case dwr:
+		if b != 0 {
+			fmt.Println(a % b)
+		} else {
+			fmt.Println("На ноль делить нельзя")
 		}
-	}else{
-		fmt.Println("Такой операции пока нет")
 	}
 }
